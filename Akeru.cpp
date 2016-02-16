@@ -14,7 +14,7 @@
 Akeru_ Akeru;
 
 Akeru_::Akeru_() :
-    _serial(5, 4) // for Akeru : _serial(5, 4) // for Akene : _serial(4, 5)
+    _serial(5, 4) // for Akeru : _serial(5, 4) // for Akene : _serial(4, 5) // for TD1208 breakout : your specific pins
 	{
      //Since _lastSend is unsigned, this is infinity
     _lastSend = -1;
