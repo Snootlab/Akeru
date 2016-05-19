@@ -194,9 +194,9 @@ except serial.SerialException as e:
 	sys.stderr.write("Open device {} failed :\n\t{}\n".format(device, e))
 	sys.exit(1)
 
-# Flush serial buffer
-serialFd.reset_input_buffer()
-serialFd.reset_output_buffer()
+# Flush serial buffer( Disable for old python-serial version)
+#serialFd.reset_input_buffer()
+#serialFd.reset_output_buffer()
 
 # Test modem presence & echo disabling
 if not transfert('ATE0', 'OK', 'ERROR') :
