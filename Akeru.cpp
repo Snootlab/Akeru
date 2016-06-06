@@ -64,7 +64,6 @@ bool Akeru_::isReady() {
 	// TO BE BLOCKED BY YOUR SIFGOX NETWORK OPERATOR.
 	//
 	// You've been warned!
-	/** Original 600000 **/
 
     unsigned long currentTime = millis();
     if(currentTime >= _lastSend && (currentTime - _lastSend) <= 600000) {
