@@ -22,6 +22,7 @@ class Akeru_ {
 		void listen();
         bool isReady();
         bool send(const void* data, uint8_t len);
+        bool rcv(uint8_t* data);
         uint8_t getRev();
         unsigned long getID();
         bool setPower(uint8_t power);

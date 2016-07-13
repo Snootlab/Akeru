@@ -108,6 +108,37 @@ bool Akeru_::send(const void* data, uint8_t len) {
     return false;
 }
 
+bool Akeru_::rcv(uint8_t* data) {
+    
+    char OneHexaByte[] = "FF";
+    uint8_t i = 0;
+
+    if(!isReady()) {
+        return false;
+    }
+
+    _serial.write("AT$SB=1,2,1\n\r");
+
+    // "+RX BEGIN<CR><LF>"
+    while( _serial.read() != '+' );
+    while( _serial.read() != '=' );
+
+    for(i = 0; i < 8; ++i) 
+    {
+        while( _serial.available() <= 0 );
+        OneHexaByte[0] = (char)_serial.read();
+        while( _serial.available() <= 0 );
+        OneHexaByte[1] = (char)_serial.read();
+        while( _serial.available() <= 0 );
+        _serial.read(); //' '
+        data[i] = (uint8_t)strtol(OneHexaByte, NULL, 16);
+    }
+    
+    // "<CR>+RX END<CR><LF>"
+    while( _serial.read() != '+'  );
+    while( _serial.read() != '\r' ); 
+}
+
 uint8_t Akeru_::getRev() {
     _serial.write((uint8_t)'\0');
     _serial.write((uint8_t)'S');
