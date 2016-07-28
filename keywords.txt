@@ -1,5 +1,5 @@
 #######################################
-# Syntax Coloring Map for Akeru
+# Syntax Coloring Map Akeru
 #######################################
 
 #######################################
@@ -13,14 +13,25 @@ Akene	KEYWORD1
 # Methods and Functions (KEYWORD2)
 #######################################
 
+echoOn	KEYWORD2
+echoOff	KEYWORD2
 begin	KEYWORD2
-listen	KEYWORD2
 isReady	KEYWORD2
-send	KEYWORD2
-getRev	KEYWORD2
-getId	KEYWORD2
+sendAT	KEYWORD2
+sendPayload	KEYWORD2
+getTemperature	KEYWORD2
+getID	KEYWORD2
+getVoltage	KEYWORD2
+getHardware	KEYWORD2
+getFirmware	KEYWORD2
+getPower	KEYWORD2
 setPower	KEYWORD2
+receive	KEYWORD2
+toHex	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
 #######################################
+
+
+
