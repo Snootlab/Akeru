@@ -22,7 +22,7 @@ Examples
 Installation
 ------------
 
-Like any other library : http://arduino.cc/en/Hacking/Libraries
+Like any other library, see [tutorial](http://arduino.cc/en/Hacking/Libraries)
 
 Use
 --------------------------------------
@@ -52,6 +52,11 @@ A single line to add in your `void setup()` :
 akeru.begin(); // returns 1 when everything went ok
 ```
 
+####Enabling/Disabling echo
+
+To see AT commands and their answers : `akeru.echoOn();`
+To hide AT commands and their answers : `akeru.echoOff();`
+
 ####Sending data
 
 Data is sent to the Sigfox network in hexadecimal format, and the payload has to be a String of all elements you want to send. To ensure proper conversion of your variables, you can use `akeru.toHex()` method :
@@ -61,9 +66,17 @@ int val = analogRead(0);
 String valString = akeru.toHex(val);
 akeru.sendPayload(varString);
 ```
+Note that if you send a array of `char` you need to provide its size in order to convert it :
+```
+char array[] = "Hello world";
+String arrayString= akeru.toHex(array, sizeof(array));
+akeru.sendPayload(arrayString);
+```
 
 Documentation
 -------------
 
-Visit our specific forum at http://forum.snootlab.com/viewforum.php?f=51
+Visit [our specific forum](http://forum.snootlab.com/viewforum.php?f=51)
+Read the full documentation [in french](http://forum.snootlab.com/viewtopic.php?f=51&t=1508) or [in english](http://forum.snootlab.com/viewtopic.php?f=51&t=1509)
+
 

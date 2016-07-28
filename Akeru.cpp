@@ -311,6 +311,35 @@ String Akeru::toHex(float f)
 	return bytes;
 }
 
+String Akeru::toHex(char c)
+{
+	byte *b = (byte*) & c;
+	
+	String bytes = "";
+	if (b[0] <= 0xF) // single char
+	{
+		bytes.concat("0"); // add a "0" to make sure every byte is read correctly
+	}
+	bytes.concat(String(b[0], 16));
+	return bytes;
+}
+
+String Akeru::toHex(char *c, int length)
+{
+	byte * b = (byte*) c;
+	
+	String bytes = "";
+	for (int i=0; i<length; i++)
+	{
+		if (b[i] <= 0xF) // single char
+		{
+			bytes.concat("0"); // add a "0" to make sure every byte is read correctly
+		}
+		bytes.concat(String(b[i], 16));
+	}
+	return bytes;
+}
+
 bool Akeru::sendATCommand(const String command, const int timeout, String *dataOut)
 {
 	// Start serial interface

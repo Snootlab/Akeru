@@ -39,7 +39,7 @@ void setup()
     while(1);
   }
   
-  akeru.echoOn(); // comment this line if you don't care about verbose
+  akeru.echoOn(); // comment this line to hide AT commands
 }
 
 void loop()

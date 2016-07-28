@@ -71,6 +71,8 @@ class Akeru
 		String toHex(int i);
 		String toHex(unsigned int i);
 		String toHex(float f);
+		String toHex(char c);
+		String toHex(char *c, int length);
 
 	private:
 		bool sendATCommand(const String command, const int timeout, String *dataOut);
