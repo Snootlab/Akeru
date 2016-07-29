@@ -5,7 +5,9 @@ Requirements
 ------------
 
 [Akeru](http://snootlab.com/lang-en/snootlab-shields/829-akeru-beta-33-en.html)
+
 or
+
 [Arduino/Genuino Uno](http://snootlab.com/lang-en/arduino-genuino-en/956-genuino-uno-arduino-uno-en.html) + [Akene](http://snootlab.com/lang-en/snootlab-shields/889-akene-v1-en.html) or [TD1208 Breakout](http://snootlab.com/lang-en/snootlab-shields/962-breakout-td1208-connectivity-1-year-accessories-en.html)
 
 Examples
@@ -55,6 +57,7 @@ akeru.begin(); // returns 1 when everything went ok
 ####Enabling/Disabling echo
 
 To see AT commands and their answers : `akeru.echoOn();`
+
 To hide AT commands and their answers : `akeru.echoOff();`
 
 ####Sending data

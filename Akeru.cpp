@@ -1,4 +1,4 @@
-/* Akeru.h - v4 [2016.07.27]
+/* Akeru.h - v4 [2016.07.29]
  * 
  * Copyleft Snootlab 2016 - inspired by TD1208 lib by IoTHerd (C) 2016
  *
@@ -15,6 +15,7 @@
  *	 - TD1208 power read
  *	 - TD1208 power set
  *   - TD1208 downlink request
+ *   - Data conversion in hexadecimal
  */
  
 #include "Akeru.h"
@@ -268,13 +269,13 @@ String Akeru::toHex(int i)
 	byte * b = (byte*) & i;
 	
 	String bytes = "";
-	for (int i=0; i<2; i++)
+	for (int j=0; j<2; j++)
 	{
-		if (b[i] <= 0xF) // single char
+		if (b[j] <= 0xF) // single char
 		{
 			bytes.concat("0"); // add a "0" to make sure every byte is read correctly
 		}
-		bytes.concat(String(b[i], 16));
+		bytes.concat(String(b[j], 16));
 	}
 	return bytes;
 }
@@ -295,9 +296,57 @@ String Akeru::toHex(unsigned int ui)
 	return bytes;
 }
 
+String Akeru::toHex(long l)
+{
+	byte * b = (byte*) & l;
+	
+	String bytes = "";
+	for (int i=0; i<4; i++)
+	{
+		if (b[i] <= 0xF) // single char
+		{
+			bytes.concat("0"); // add a "0" to make sure every byte is read correctly
+		}
+		bytes.concat(String(b[i], 16));
+	}
+	return bytes;
+}
+
+String Akeru::toHex(unsigned long ul)
+{
+	byte * b = (byte*) & ul;
+	
+	String bytes = "";
+	for (int i=0; i<4; i++)
+	{
+		if (b[i] <= 0xF) // single char
+		{
+			bytes.concat("0"); // add a "0" to make sure every byte is read correctly
+		}
+		bytes.concat(String(b[i], 16));
+	}
+	return bytes;
+}
+
 String Akeru::toHex(float f)
 {
 	byte * b = (byte*) & f;
+
+	String bytes = "";
+	for (int i=0; i<4; i++)
+	{
+		if (b[i] <= 0xF) // single char
+		{
+			bytes.concat("0"); // add a "0" to make sure every byte is read correctly
+		}
+		bytes.concat(String(b[i], 16));
+	}
+	return bytes;
+}
+
+String Akeru::toHex(double d)
+{
+	byte * b = (byte*) & d;
 
 	String bytes = "";
 	for (int i=0; i<4; i++)

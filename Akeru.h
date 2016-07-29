@@ -1,4 +1,4 @@
-/* Akeru.h - v4 [2016.07.27]
+/* Akeru.h - v4 [2016.07.29]
  * 
  * Copyleft Snootlab 2016 - inspired by TD1208 lib by IoTHerd (C) 2016
  *
@@ -15,6 +15,7 @@
  *	 - TD1208 power read
  *	 - TD1208 power set
  *   - TD1208 downlink request
+ *   - Data conversion in hexadecimal
  */
 
 #ifndef AKERU_H
@@ -70,7 +71,10 @@ class Akeru
 		bool receive(String *data);
 		String toHex(int i);
 		String toHex(unsigned int i);
+		String toHex(long l);
+		String toHex(unsigned long ul);
 		String toHex(float f);
+		String toHex(double d);
 		String toHex(char c);
 		String toHex(char *c, int length);
 
