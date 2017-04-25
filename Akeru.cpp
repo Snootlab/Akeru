@@ -545,8 +545,6 @@ bool Akeru::sendATCommand(const String command, const int timeout, String *dataO
 	}
 	else
 	{
-		Serial.println(firstData);
-		Serial.println(secondData);
 		Serial.println("Wrong AT response");
 		return false;
 	}
