@@ -389,6 +389,40 @@ String Akeru::toHex(char *c, int length)
 	return bytes;
 }
 
+/**
+ * Transforme uint8, that takes lower space than the normal int that size 16 bits (2 bytes)
+ * 0 to 255
+ */
+String Akeru::toHex(int8_t c)
+{
+	byte *b = (byte*) & c;
+
+	String bytes = "";
+	if (b[0] <= 0xF) // single char
+	{
+		bytes.concat("0"); // add a "0" to make sure every byte is read correctly
+	}
+	bytes.concat(String(b[0], 16));
+	return bytes;
+}
+
+/**
+ * Transforme uint8, that takes lower space than the normal int that size 16 bits (2 bytes)
+ * -128 tto 127
+ */
+String Akeru::toHex(uint8_t c)
+{
+	byte *b = (byte*) & c;
+
+	String bytes = "";
+	if (b[0] <= 0xF) // single char
+	{
+		bytes.concat("0"); // add a "0" to make sure every byte is read correctly
+	}
+	bytes.concat(String(b[0], 16));
+	return bytes;
+}
+
 bool Akeru::sendATCommand(const String command, const int timeout, String *dataOut)
 {
 	// Start serial interface
