@@ -29,7 +29,7 @@ Like any other library, see [tutorial](http://arduino.cc/en/Hacking/Libraries)
 Use
 --------------------------------------
 
-####Sigfox module initialization
+#### Sigfox module initialization
 
 Starting with version 4 of the library, RX/TX definition is directly in the sketch. There's a single library file to include and a simple line of code to map the signals according to your device :
 
@@ -46,7 +46,7 @@ Starting with version 4 of the library, RX/TX definition is directly in the sket
 Akeru akeru(RX, TX);
 ```
 
-####Powering up
+#### Powering up
 
 A single line to add in your `void setup()` :
 
@@ -54,13 +54,13 @@ A single line to add in your `void setup()` :
 akeru.begin(); // returns 1 when everything went ok
 ```
 
-####Enabling/Disabling echo
+#### Enabling/Disabling echo
 
 To see AT commands and their answers : `akeru.echoOn();`
 
 To hide AT commands and their answers : `akeru.echoOff();`
 
-####Sending data
+#### Sending data
 
 Data is sent to the Sigfox network in hexadecimal format, and the payload has to be a String of all elements you want to send. To ensure proper conversion of your variables, you can use `akeru.toHex()` method :
 
